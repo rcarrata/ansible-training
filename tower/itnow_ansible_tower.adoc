@@ -34,17 +34,18 @@ In this lab you work in a pre-configured lab environment. You will have access t
 |===
 |Role|Hostname |IP|
 
-| Students | https://409e.rhdemo.io ||
-| Identity Manager | https://idm.example.com | 35.241.189.24 |
+| Students | https://itnow.rhdemo.io ||
+| Identity Manager | https://idm.rober.lab | 18.194.69.201 |
 | MariaDB | N/A | 35.241.189.24 |
 | Git Repos | https://gitlab.com/tower-training/ansible-tower/blob/master/tower/itnow_ansible_tower.adoc ||
-| Control Node | https://<student>.409e.rhdemo.io ||
+| Control Node | https://<student>.itnow.rhdemo.io ||
 | Managed Node1 | node1.example.com ||
 | Managed Node2 | node2.example.com ||
 | Managed Node3 | node3.example.com ||
 |===
 
-TIP: Your lab environment will get a unique *<student_id>*. You will be able to SSH into control node using the following for SSH access http://409e.rhdemo.io/ from here you need to SSH into the other hosts to run tasks on the commandline.
+TIP: Your lab environment will get a unique *<student_id>*. You will be able to SSH into control
+node using the following for SSH access http://itnow.rhdemo.io/ from here you need to SSH into the other hosts to run tasks on the commandline.
 
 == Ansible Tower Introduction
 
@@ -1255,7 +1256,8 @@ Let's create a user in Tower:
 
 Let's create a user in idM:
 
-* Access to idM Web ui https://idm.killproc.net/ipa/ui/#/e/user/search (ip address 35.241.189.24, add to your local /etc/hosts file "35.241.189.24 idm.killproc.net")
+* Access to idM Web ui https://idm.rober.lab/ipa/ui/#/e/user/search (ip address 18.194.69.201, add
+* to your local /etc/hosts file "18.194.69.201 idm.rober.lab")
 ** User: admin
 ** Password: redhat00
 * In the Identity > Users > +Add
