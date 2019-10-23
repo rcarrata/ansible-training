@@ -1140,11 +1140,11 @@ To configure LDAP integration for Tower:
 
 * LDAP SERVER URI
 ----
-ldap://35.241.189.24
+ldap://18.194.69.201
 ----
 * LDAP BIND DN
 ----
-uid=admin,cn=users,cn=compat,dc=killproc,dc=net
+uid=admin,cn=users,cn=compat,dc=rober,dc=lab
 ----
 * LDAP BIND PASSWORD
 ----
@@ -1161,7 +1161,7 @@ OFF
 * LDAP USER SEARCH
 ----
 [
- "cn=users,cn=accounts,dc=killproc,dc=net",
+ "cn=users,cn=accounts,dc=rober,dc=lab",
  "SCOPE_SUBTREE",
  "(uid=%(user)s)"
 ]
@@ -1169,7 +1169,7 @@ OFF
 * LDAP GROUP SEARCH
 ----
 [
- "cn=groups,cn=accounts,dc=killproc,dc=net",
+ "cn=groups,cn=accounts,dc=rober,dc=lab",
  "SCOPE_SUBTREE",
  "(objectClass=nestedgroup)"
 ]
@@ -1188,10 +1188,10 @@ The above example retrieves users who are flagged as superusers or as auditor in
 ----
 {
  "is_superuser": [
-  "cn=tower.admins,cn=groups,cn=accounts,dc=killproc,dc=net"
+  "cn=tower.admins,cn=groups,cn=accounts,dc=rober,dc=lab"
  ],
  "is_system_auditor": [
-  "cn=tower.auditors,cn=groups,cn=accounts,dc=killproc,dc=net"
+  "cn=tower.auditors,cn=groups,cn=accounts,dc=rober,dc=lab"
  ]
 }
 ----
@@ -1202,21 +1202,21 @@ Next, mapping between team members (users) and LDAP groups. Keys are team names 
  "Admins": {
   "organization": "Default",
   "users": [
-   "cn=tower.admins,cn=groups,cn=accounts,dc=killproc,dc=net"
+   "cn=tower.admins,cn=groups,cn=accounts,dc=rober,dc=lab"
   ],
   "remove": true
  },
  "Operators": {
   "organization": "Default",
   "users": [
-   "cn=tower.operators,cn=groups,cn=accounts,dc=killproc,dc=net"
+   "cn=tower.operators,cn=groups,cn=accounts,dc=rober,dc=lab"
   ],
   "remove": true
  },
  "Linux": {
   "organization": "Default",
   "users": [
-   "cn=tower.linux,cn=groups,cn=accounts,dc=killproc,dc=net"
+   "cn=tower.linux,cn=groups,cn=accounts,dc=rober,dc=lab"
   ],
   "remove": true
  }
@@ -1296,7 +1296,8 @@ Now you can add a user to the Team:
 
 Let's create a user in idM:
 
-* Access to idM Web ui https://idm.killproc.net/ipa/ui/#/e/user/search (ip address 35.241.189.24, add to your local /etc/hosts file "35.241.189.24 idm.killproc.net")
+* Access to idM Web ui https://idm.rober.lab/ipa/ui/#/e/user/search (ip address 18.194.69.201, add
+* to your local /etc/hosts file "18.194.69.201 idm.rober.lab")
 ** User: admin
 ** Password: redhat00
 * In the Identity > Groups > +Add
