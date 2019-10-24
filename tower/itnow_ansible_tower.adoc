@@ -35,7 +35,7 @@ In this lab you work in a pre-configured lab environment. You will have access t
 |Role|Hostname |IP|
 
 | Students | https://itnow.rhdemo.io ||
-| Identity Manager | https://idm.rober.lab | 18.194.69.201 |
+| Identity Manager | https://idm.rober.labs | 3.123.32.118 |
 | MariaDB | N/A | 35.241.189.24 |
 | Git Repos | https://gitlab.com/tower-training/ansible-tower/blob/master/tower/itnow_ansible_tower.adoc ||
 | Control Node | https://<student>.itnow.rhdemo.io ||
@@ -1141,11 +1141,11 @@ To configure LDAP integration for Tower:
 
 * LDAP SERVER URI
 ----
-ldap://18.194.69.201
+ldap://3.123.32.118
 ----
 * LDAP BIND DN
 ----
-uid=admin,cn=users,cn=compat,dc=rober,dc=lab
+uid=admin,cn=users,cn=compat,dc=rober,dc=labs
 ----
 * LDAP BIND PASSWORD
 ----
@@ -1162,7 +1162,7 @@ OFF
 * LDAP USER SEARCH
 ----
 [
- "cn=users,cn=accounts,dc=rober,dc=lab",
+ "cn=users,cn=accounts,dc=rober,dc=labs",
  "SCOPE_SUBTREE",
  "(uid=%(user)s)"
 ]
@@ -1170,7 +1170,7 @@ OFF
 * LDAP GROUP SEARCH
 ----
 [
- "cn=groups,cn=accounts,dc=rober,dc=lab",
+ "cn=groups,cn=accounts,dc=rober,dc=labs",
  "SCOPE_SUBTREE",
  "(objectClass=nestedgroup)"
 ]
@@ -1189,10 +1189,10 @@ The above example retrieves users who are flagged as superusers or as auditor in
 ----
 {
  "is_superuser": [
-  "cn=tower.admins,cn=groups,cn=accounts,dc=rober,dc=lab"
+  "cn=tower.admins,cn=groups,cn=accounts,dc=rober,dc=labs"
  ],
  "is_system_auditor": [
-  "cn=tower.auditors,cn=groups,cn=accounts,dc=rober,dc=lab"
+  "cn=tower.auditors,cn=groups,cn=accounts,dc=rober,dc=labs"
  ]
 }
 ----
@@ -1203,21 +1203,21 @@ Next, mapping between team members (users) and LDAP groups. Keys are team names 
  "Admins": {
   "organization": "Default",
   "users": [
-   "cn=tower.admins,cn=groups,cn=accounts,dc=rober,dc=lab"
+   "cn=tower.admins,cn=groups,cn=accounts,dc=rober,dc=labs"
   ],
   "remove": true
  },
  "Operators": {
   "organization": "Default",
   "users": [
-   "cn=tower.operators,cn=groups,cn=accounts,dc=rober,dc=lab"
+   "cn=tower.operators,cn=groups,cn=accounts,dc=rober,dc=labs"
   ],
   "remove": true
  },
  "Linux": {
   "organization": "Default",
   "users": [
-   "cn=tower.linux,cn=groups,cn=accounts,dc=rober,dc=lab"
+   "cn=tower.linux,cn=groups,cn=accounts,dc=rober,dc=labs"
   ],
   "remove": true
  }
@@ -1256,8 +1256,8 @@ Let's create a user in Tower:
 
 Let's create a user in idM:
 
-* Access to idM Web ui https://idm.rober.lab/ipa/ui/#/e/user/search (ip address 18.194.69.201, add
-* to your local /etc/hosts file "18.194.69.201 idm.rober.lab")
+* Access to idM Web ui https://idm.rober.lab/ipa/ui/#/e/user/search (ip address 3.123.32.118, add
+* to your local /etc/hosts file "3.123.32.118 idm.rober.labs")
 ** User: admin
 ** Password: redhat00
 * In the Identity > Users > +Add
@@ -1268,8 +1268,8 @@ image::add_idm_user.png[]
 ** *USER LOGIN:* admin_<student_id> / ops__<student_id> / dev_<student_id>
 ** *LAST NAME:* <student_id>
 ** *FIRST NAME:* <student_id>
-** *NEW PASSWORD:* ansibleWS
-** *VERIFY PASSORD:* ansibleWS
+** *NEW PASSWORD:*
+** *VERIFY PASSORD:*
 * Click *ADD*
 
 === Ansible Tower Teams
@@ -1298,8 +1298,8 @@ Now you can add a user to the Team:
 
 Let's create a user in idM:
 
-* Access to idM Web ui https://idm.rober.lab/ipa/ui/#/e/user/search (ip address 18.194.69.201, add
-* to your local /etc/hosts file "18.194.69.201 idm.rober.lab")
+* Access to idM Web ui https://idm.rober.lab/ipa/ui/#/e/user/search (ip address 3.123.32.118, add
+* to your local /etc/hosts file "3.123.32.118 idm.rober.lab")
 ** User: admin
 ** Password: redhat00
 * In the Identity > Groups > +Add
